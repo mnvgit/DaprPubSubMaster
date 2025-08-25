@@ -8,7 +8,7 @@ Subscriber receives events via RabbitMQ and simulates storing them in a DB.
 Both use Dapr sidecars for pub/sub.
 
 
-//
+</br></br>
 
 ⚡ Prerequisites
 Docker Desktop
@@ -18,7 +18,7 @@ Docker Desktop
 No manual RabbitMQ setup required — Docker Compose will handle it.
 
 
-//
+</br></br>
 
 🏃 Running Locally
 
@@ -39,9 +39,7 @@ Publisher logs show messages being published.
 Subscriber logs show messages received and simulated DB storage.
 
 
-
-//
-
+</br></br>
 🔧 Notes
 
 No configuration required — all ports and RabbitMQ credentials are preconfigured.
@@ -53,7 +51,7 @@ Publisher logs show messages being published.
 Subscriber logs show messages received and simulated DB storage.
 
 
-//
+</br></br>
 
 ⚡ Recommended VS Usage
 Keep docker-compose.yml and docker-compose.override.yml in the solution root.
@@ -61,7 +59,7 @@ Open the solution in Visual Studio.
 Use docker compose up --build from terminal, or add a Docker Compose project in VS for F5 debugging.
 Do not hardcode Dapr endpoints in code — the SDK auto-detects ports via environment variables.
 
-//
+</br></br>
 
 ✅ Summary
 This project demonstrates a ready-to-run Dapr + RabbitMQ pub/sub example using Docker Compose.
