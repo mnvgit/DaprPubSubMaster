@@ -18,15 +18,13 @@ No manual RabbitMQ setup required — Docker Compose will handle it.
 
 🏃 Running Locally
 
-Run by VS when docker-compose is startup project
-Or
-Open a terminal in the solution root:
-cd DaprPubSubMaster
-Start the solution using Docker Compose:
-docker compose up --build
-Wait until all services are up:
-RabbitMQ → UI: http://localhost:15672
- (guest/guest)
+Run by VS when docker-compose is startup project</br>
+Or</br>
+Open a terminal in the solution root:</br>
+cd DaprPubSubMaster</br>
+Start the solution using Docker Compose: docker compose up --build</br>
+Wait until all services are up:</br>
+RabbitMQ → UI: http://localhost:15672(guest/guest)</br>
 
 DaprPublisherWorker: publishes events to RabbitMQ via Dapr and logs each message so users can track what was sent.</br>
 DaprSubscriberApi: receives events from RabbitMQ via Dapr, simulates processing (e.g., saving to a database), and logs each received event.
