@@ -4,6 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddDapr();
 var app = builder.Build();
 
+app.UseCloudEvents();
+
 app.MapPost("/orders", [Topic("pubsub", "orders")] (Order order, ILogger<Program> logger) =>
 {
     logger.LogInformation("Received: {Id} at {Time}", order.Id, order.Timestamp);
