@@ -6,8 +6,6 @@ It uses .NET 8, Dapr sidecars, and RabbitMQ, fully containerized with Docker Com
 Publisher sends events every few seconds.
 Subscriber receives events via RabbitMQ and simulates storing them in a DB.
 Both use Dapr sidecars for pub/sub.
-
-
 </br></br>
 
 ⚡ Prerequisites
@@ -16,8 +14,6 @@ Docker Desktop
 .NET 8 SDK
  (optional, only if building outside Docker).
 No manual RabbitMQ setup required — Docker Compose will handle it.
-
-
 </br></br>
 
 🏃 Running Locally
@@ -38,7 +34,6 @@ Publisher logs show messages being published.
 
 Subscriber logs show messages received and simulated DB storage.
 
-
 </br></br>
 🔧 Notes
 
@@ -49,8 +44,6 @@ components/pubsub.yaml defines RabbitMQ pub/sub for Dapr.
 
 Publisher logs show messages being published.
 Subscriber logs show messages received and simulated DB storage.
-
-
 </br></br>
 
 ⚡ Recommended VS Usage
@@ -58,7 +51,6 @@ Keep docker-compose.yml and docker-compose.override.yml in the solution root.
 Open the solution in Visual Studio.
 Use docker compose up --build from terminal, or add a Docker Compose project in VS for F5 debugging.
 Do not hardcode Dapr endpoints in code — the SDK auto-detects ports via environment variables.
-
 </br></br>
 
 ✅ Summary
