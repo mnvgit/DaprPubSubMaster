@@ -1,0 +1,60 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  dapr-publisher:
+    build:
+      context: .
+      dockerfile: DaprPublisherWorker/Dockerfile
+    depends_on:
+      - rabbitmq
+
+  dapr-publisher-dapr:
+    image: "daprio/daprd:latest"
+    depends_on:
+      - dapr-publisher
+    command: [
+      "./daprd",
+      "-app-id", "dapr-publisher",
+      "-app-port", "80",
+      "--resources-path", "/components",
+      "-dapr-grpc-port", "50001",
+      "-dapr-http-port", "3500"
+    ]
+    volumes:
+      - ./components:/components
+    network_mode: "service:dapr-publisher"
+
+  dapr-subscriber:
+    build:
+      context: .
+      dockerfile: DaprSubscriberApi/Dockerfile
+    depends_on:
+      - rabbitmq
+    environment:
+      - ASPNETCORE_URLS=http://+:5000   # listen on all interfaces
+    ports:
+      - "5000:5000"
+
+  dapr-subscriber-dapr:
+    image: "daprio/daprd:latest"
+    depends_on:
+      - dapr-subscriber
+    command: [
+      "./daprd",
+      "-app-id", "dapr-subscriber",
+      "-app-port", "5000",
+      "--resources-path", "/components",
+      "-dapr-grpc-port", "50001",
+      "-dapr-http-port", "3500"
+    ]
+    volumes:
+      - ./components:/components
+    network_mode: "service:dapr-subscriber"
+    
