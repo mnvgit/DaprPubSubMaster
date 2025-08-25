@@ -26,23 +26,17 @@ Wait until all services are up:
 RabbitMQ → UI: http://localhost:15672
  (guest/guest)
 
-Publisher → runs as a worker and logs published events
-
-Subscriber → logs received events
-
-Publisher logs show messages being published.
-
-Subscriber logs show messages received and simulated DB storage.
+DaprPublisherWorker: publishes events to RabbitMQ via Dapr and logs each message so users can track what was sent.</br>
+DaprSubscriberApi: receives events from RabbitMQ via Dapr, simulates processing (e.g., saving to a database), and logs each received event.
 
 </br></br>
 🔧 Notes
 
-No configuration required — all ports and RabbitMQ credentials are preconfigured.
-Dapr sidecars handle communication automatically; no hardcoded endpoints in code.
-Publisher and Subscriber communicate over gRPC.
-components/pubsub.yaml defines RabbitMQ pub/sub for Dapr.
-
-Publisher logs show messages being published.
+No configuration required — all ports and RabbitMQ credentials are preconfigured.</br>
+Dapr sidecars handle communication automatically; no hardcoded endpoints in code.</br>
+Publisher and Subscriber communicate over gRPC.</br>
+components/pubsub.yaml defines RabbitMQ pub/sub for Dapr.</br>
+Publisher logs show messages being published.</br>
 Subscriber logs show messages received and simulated DB storage.
 </br></br>
 
