@@ -18,6 +18,8 @@ No manual RabbitMQ setup required — Docker Compose will handle it.
 
 🏃 Running Locally
 
+Run by VS when docker-compose is startup project
+Or
 Open a terminal in the solution root:
 cd DaprPubSubMaster
 Start the solution using Docker Compose:
@@ -38,13 +40,6 @@ Publisher and Subscriber communicate over gRPC.</br>
 components/pubsub.yaml defines RabbitMQ pub/sub for Dapr.</br>
 Publisher logs show messages being published.</br>
 Subscriber logs show messages received and simulated DB storage.
-</br></br>
-
-⚡ Recommended VS Usage
-Keep docker-compose.yml and docker-compose.override.yml in the solution root.
-Open the solution in Visual Studio.
-Use docker compose up --build from terminal, or add a Docker Compose project in VS for F5 debugging.
-Do not hardcode Dapr endpoints in code — the SDK auto-detects ports via environment variables.
 </br></br>
 
 ✅ Summary
